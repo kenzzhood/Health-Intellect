@@ -21,3 +21,38 @@ const provider = new GoogleAuthProvider();
 const signInButton = document.getElementById("signInButton");
 const signOutButton = document.getElementById("signOutButton");
 const message = document.getElementById("message");
+
+signOutButton.style.display = "none";
+message.style.display = "none";
+
+const userSignIn = async () => {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            const user = result.user
+            console.log(user);
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        })
+}
+
+const userSignout = async () => {
+    signOut(auth).then(() => {
+        alert("you have signed out successfully");
+    }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+    })
+}
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        alert("you have signed in !");
+    } else {
+        alert("you are signed out!")
+    }
+})
+
+
+signInButton.addEventListener('click', userSignIn);
+signOutButton.addEventListener('click', userSignout);
