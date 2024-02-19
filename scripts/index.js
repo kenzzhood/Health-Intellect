@@ -22,12 +22,14 @@ const signInButton = document.getElementById("signInButton");
 const signOutButton = document.getElementById("signOutButton");
 const message = document.getElementById("message");
 
-signOutButton.style.display = "none";
-message.style.display = "none";
+// signOutButton.style.display = "none";
+// message.style.display = "none";
 
 const userSignIn = async () => {
     signInWithPopup(auth, provider)
         .then((result) => {
+
+
             const user = result.user
             console.log(user);
         }).catch((error) => {
@@ -39,6 +41,7 @@ const userSignIn = async () => {
 const userSignout = async () => {
     signOut(auth).then(() => {
         alert("you have signed out successfully");
+        window.location.href = "index.html";
     }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -47,15 +50,19 @@ const userSignout = async () => {
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        alert("you have signed in !");
-        signOutButton.style.display = "block";
-        message.style.display = "block";
+        var relativePath = "pages\profile.html";
+        // Check if the current location is already the target page
+        if (window.location.href.indexOf(relativePath) === -1) {
+            window.location.href = relativePath;
+        }
     } else {
-        alert("you are signed out!")
-        signOutButton.style.display = "none";
-        message.style.display = "none";
+        // var relativePath = "index.html";
+        // // Check if the current location is already the target page
+        // if (window.location.href.indexOf(relativePath) === -1) {
+        //     window.location.href = relativePath;
+        // }
     }
-})
+});
 
 
 signInButton.addEventListener('click', userSignIn);
