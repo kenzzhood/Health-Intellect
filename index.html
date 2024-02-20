@@ -4,20 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Intelect</title>
+    <title>Your Website Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .title-bar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sign-in-register-button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
-    <button id="signInButton">Create acc / SignIn</button>
-    <button id="signOutButton">Sign Out</button>
 
-    <div id="message">
-        <p>You have signed In</p>
+    <div class="title-bar">
+        <div>Your Website Title</div>
+        <button class="sign-in-register-button" onclick="redirectToAuthenticationPage()">Sign In/Register</button>
     </div>
 
-    <script type="module" src="scripts/index.js">
-
+    <script>
+        function redirectToAuthenticationPage() {
+            window.location.href = 'pages/login.html';
+        }
     </script>
+
 </body>
 
 </html>
