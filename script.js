@@ -26,7 +26,7 @@ const fullNameInput = document.getElementById('logname');
 const emailInput = document.getElementById('logemail');
 const passwordInput = document.getElementById('logpass');
 const submitButton = document.getElementById('SubmitButton');
-const nextPageURL = "template\home.html";
+const nextPageURL = 'template/home.html';
 // submitButton.addEventListener('click', validateForm);
 
 function validateForm(event) {
