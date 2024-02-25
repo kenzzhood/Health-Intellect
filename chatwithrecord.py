@@ -10,15 +10,13 @@ genai.configure(api_key=GOOGLE_API_STUDIO)
 
 model = genai.GenerativeModel('gemini-pro-vision')
 
-img = PIL.Image.open("C:/Users/Goutham Srinath/Downloads/1703562301.webp")
+img = PIL.Image.open("C:/Users/Goutham Srinath/Downloads/WhatsApp Image 2024-01-26 at 10.48.55.jpeg")
 img
 
-new_size = (200, 200)
-img = img.resize(new_size)
 
 while True:
     a = input("What questions do You have about the report: ")
-    response = model.generate_content([ a+"(tell me in a doctor's tone)w: ", img], stream=True)
+    response = model.generate_content([a, img])
 
     try:
         full_output = ""
