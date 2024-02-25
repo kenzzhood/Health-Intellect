@@ -50,7 +50,7 @@ function validateForm(event) {
         displayError('password-error', 'Password must be at least 6 characters long.');
     }
     else {
-        loginUser(email, password);
+        RegisterUser(email, password);
     }
 
     // If no errors, you can submit the form
